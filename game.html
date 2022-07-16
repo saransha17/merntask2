@@ -1,0 +1,131 @@
+<html>
+
+<script>
+
+let i = 1;
+
+function showImage()
+{
+
+image = document.getElementById("img1");
+image.style.visibility = "visible";
+image.src= "photo" + i + ".jpg";
+
+i++;
+
+if(i<=9)
+{
+r = setTimeout(showImage, 1000);
+}
+
+else{
+//i=1;
+clearTimeout(r);
+document.location.reload();
+clearInterval(interval);
+}
+
+}
+
+let score = 0;
+
+function showScore(){
+
+y = document.getElementById("d2"); 
+y.innerText = "Score: " + 0;
+score = score + 10;
+y.innerText = "Score: " + score;
+
+if(score == 50){
+setTimeout(showPopup, 100);
+
+}
+
+}
+
+function showPopup(){
+alert("You win, Congratulations!")
+y = document.getElementById("d2"); 
+y.innerText = "Score: " + 0;
+document.location.reload();
+clearInterval(interval);
+}
+
+</script>
+
+<style>
+
+img#img1{
+background : #FFFFE0;
+width:40%;
+height:60%;
+border : 2px solid black;
+position:absolute;
+top:20%;
+left:25%;
+
+}
+
+div#d2{
+color : black;
+border : 5px groove blue;
+position: absolute;
+width : 10%;
+height : 5%;
+left : 85%;
+top : 5%;
+border-radius : 30%;
+text-align : center;
+font-size : 30px;
+
+}
+
+.btnshow{      
+    background-color:#0a0a23;
+    color: #fff;
+    border:none; 
+    border-radius:10px; 
+    position: relative;
+    top: 10px;
+    left : 37%;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    padding: 15px 32px;
+    text-align: center;
+}
+
+.btnshow:hover {
+      background-color:#002ead;
+      transition: 0.7s;
+  }
+
+
+body{
+background-color:powderblue;
+
+.header1{
+
+    text-align:center;
+width:100%;
+
+}
+
+</style>
+
+<body>
+<h2 style="text-align : center; width:80%">Click the image game</h2>
+<button class="btnshow" onclick = "showImage()">Start</button>
+
+<div id = "d1">
+<img id = "img1" src="" onclick="showScore()" style="visibility:hidden"/>
+</div>
+
+<div id = "d2" ></div>
+<br/>
+
+
+
+</body>
+
+</html>
